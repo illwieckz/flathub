@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>net.unvanquished.unvtray</id>
+  <metadata_license>CC-BY-SA-2.1</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <developer_name>Unvanquished Development</developer_name>
+  <name>Unvanquished Tray</name>
+  <summary>Minimalistic Unvanquished server browser that runs in your system tray</summary>
+
+  <description>
+    <p>
+	  A minimalistic Unvanquished server browser that runs in your system tray. The icon shows the player count of the most populated server. A left click on the icon connects to this server (on supported platforms) while a right click opens a server list in a context menu. Clicking on a server will launch the game and connect to it.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">net.unvanquished.unvtray.desktop</launchable>
+
+  <screenshots>
+    <screenshot type="default">
+      <image type="source">https://raw.githubusercontent.com/Unvanquished/unvanquished-tray-browser/main/package/icons/512x512/unvtray.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://unvanquished.net</url>
+  <url type="bugtracker">https://github.com/Unvanquished/unvanquished-tray-browser/issues</url>
+  <url type="help">https://wiki.unvanquished.net</url>
+
+  <releases>
+    <release version="0.2.1" date="2023-04-16">
+      <description>
+        <p>
+		  Working desktop file.
+        </p>
+      </description>
+      <url>https://github.com/Unvanquished/unvanquished-tray-browser/releases/tag/v0.2.1</url>
+    </release>
+  </releases>
+
+  <recommends>
+    <memory>3072</memory> <!-- 3GiB RAM -->
+  </recommends>
+
+  <requires>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </requires>
+
+  <content_rating type="oars-1.1">
+  </content_rating>
+
+  <provides>
+    <binary>unvtray</binary>
+  </provides>
+</component>

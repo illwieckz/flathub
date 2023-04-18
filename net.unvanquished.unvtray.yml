@@ -1,0 +1,40 @@
+app-id: net.unvanquished.unvtray
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+command: unvtray
+
+finish-args:
+  - --share=network
+  - --socket=x11
+  - --socket=wayland
+
+cleanup:
+
+modules:
+  # generated with: flatpak-pip-generator unvtray
+  # see https://github.com/flatpak/flatpak-builder-tools/tree/master/pip
+  - python3-unvtray.json
+  - name: unvtray
+    buildsystem: simple
+    build-commands:
+       # already part of python3-unvtray.json
+       # - python -m pip install --prefix=/app --no-deps unvtray
+       - install -Dm0644 -t /app/share/applications package/${FLATPAK_ID}.desktop
+       - install -Dm0644 -t /app/share/icons/hicolor/32x32/apps package/icons/32x32/${FLATPAK_ID}.png
+       - install -Dm0644 -t /app/share/icons/hicolor/64x64/apps package/icons/64x64/${FLATPAK_ID}.png
+       - install -Dm0644 -t /app/share/icons/hicolor/128x128/apps package/icons/128x128/${FLATPAK_ID}.png
+       - install -Dm0644 -t /app/share/icons/hicolor/256x256/apps package/icons/256x256/${FLATPAK_ID}.png
+       - install -Dm0644 -t /app/share/icons/hicolor/512x512/apps package/icons/512x512/${FLATPAK_ID}.png
+    sources:
+      - type: git
+        url: https://github.com/Unvanquished/unvanquished-tray-browser.git
+        tag: 811b76c82442d86de64d746aba565bb452575dad
+
+  - name: metadata
+    buildsystem: simple
+    build-commands:
+       - install -Dm0644 -t /app/share/metainfo/ ${FLATPAK_ID}.metainfo.xml
+    sources:
+      - type: file
+        path: net.unvanquished.unvtray.metainfo.xml
